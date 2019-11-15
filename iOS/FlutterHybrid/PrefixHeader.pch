@@ -1,0 +1,32 @@
+//
+//  PrefixHeader.pch
+//  FlutterHybrid
+//
+//  Created by yuan on 2019/11/14.
+//  Copyright © 2019 yuan. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+#import "YSFlutterRouter.h"
+#import "BaseNavViewController.h"
+
+//TODO:创建纯色图片
+static inline UIImage * createImageWithColor(UIColor *color,CGFloat width,CGFloat height){
+    CGRect rect = CGRectMake(0.0f,0.0f,width,height);
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetFillColorWithColor(context, [color CGColor]);
+    CGContextFillRect(context, rect);
+    UIImage *theImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return theImage;
+}
+
+static inline UIButton *createBtn(NSString *title,SEL selector,id target){
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [btn setTitle:title forState:UIControlStateNormal];
+    [btn addTarget:target action:selector forControlEvents:UIControlEventTouchUpInside];
+    [btn setTitleColor:UIColor.whiteColor forState:UIControlStateNormal];
+    btn.backgroundColor = UIColor.blueColor;
+    return btn;
+}

@@ -1,0 +1,5 @@
+#include "Flutter.xcconfig"
+FLUTTER_BUILD_MODE=release
+
+// 原项目由Pod管理，需要添加下面这一项
+#include "Pods/Target Support Files/Pods-FlutterHybrid/Pods-FlutterHybrid.release.xcconfig"
